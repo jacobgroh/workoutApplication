@@ -1,3 +1,5 @@
+This Project is not in a state to be used. It depends on a backend that is not finished and only can run at the moment in a local enviorment.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
