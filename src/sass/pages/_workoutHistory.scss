@@ -1,0 +1,43 @@
+.history {
+  &__header {
+    text-align: center;
+    color: $color-black;
+  }
+  &__content {
+    padding-top: 2rem;
+    color: $color-black;
+    font-size: 1.4rem;
+    text-align: center;
+    width: 75%;
+    margin: 0 auto;
+    //display: flex;
+    justify-content: center;
+  }
+}
+
+.view {
+  &__workout {
+    text-align: center;
+
+    &__container {
+      display: flex;
+      width: 100%;
+      list-style: none;
+      font-size: 1.7rem;
+      line-height: 1.2rem;
+      font-weight: 500;
+      padding-top: 2rem;
+      border: 1px solid $color-black;
+      &:not(:last-child) {
+        border-bottom: none;
+      }
+    }
+    &--list {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      padding: 1rem;
+    }
+  }
+}

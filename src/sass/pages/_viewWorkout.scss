@@ -1,0 +1,79 @@
+.cart {
+  &__header {
+    text-align: center;
+    color: $color-white;
+    border-bottom: 2px solid $color-black;
+  }
+
+  &__list {
+    width: 100%;
+    list-style: none;
+    font-size: 1.7rem;
+    line-height: 1.2rem;
+    font-weight: 500;
+    color: $color-white;
+    &--black {
+      color: $color-black;
+    }
+    padding-top: 2rem;
+  }
+
+  &__item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-bottom: 2px dotted $color-black;
+    padding: 1rem;
+
+    &--container {
+      display: flex;
+    }
+
+    &--form {
+      display: flex;
+      justify-content: center;
+    }
+
+    &--title {
+      width: 10rem;
+    }
+
+    &--set {
+      text-align: center;
+      width: 2rem;
+      margin-right: 3rem;
+      border-radius: 5px;
+    }
+    &--rep {
+      text-align: center;
+      width: 2rem;
+      margin-right: 3rem;
+      border-radius: 5px;
+    }
+    &--weight {
+      text-align: center;
+      width: 2.8rem;
+      margin-right: 3rem;
+      border-radius: 5px;
+    }
+  }
+
+  &__form {
+    &--title {
+      font-size: 3rem;
+      display: flex;
+      align-items: center;
+      padding: 2rem 0;
+
+      &--field {
+        border-radius: 5px;
+      }
+    }
+  }
+
+  &__submit {
+    padding-top: 2rem;
+    text-align: center;
+  }
+}

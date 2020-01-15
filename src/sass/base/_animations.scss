@@ -1,0 +1,87 @@
+.animate-right {
+  animation: moveInRight 2s ease-in;
+}
+
+.animate-left {
+  animation: moveInLeft 2s ease-in;
+}
+
+.animate-top {
+  animation: moveInTop 2s ease-in;
+}
+
+/*  Animation of move in from left
+ 0% when animation starts
+ ... any percent in the middle
+ 100% when animation finishes
+
+ opacity - how visible element is
+ transform - moves element from set position 
+  translate(0) gets back to normal look
+
+  Apply this by adding two properties to css selectors
+  animation0-name  && animation-duration
+  Look above  at .heading-primary-main for example
+
+  * Using animation - combines all the types see .heading-primary-sub for example 
+
+  THERE ARE ALSO: 
+  animation-delay
+  animation-iteration-count (how many times it repeats)
+  animation-timing-function (how fast or how slow ) - ease, ease-in, ease-out,...ect--
+
+  Transform attribute also has - translate, rotate, scale
+
+  To do anitmation when hovering - 
+  .logo:hover{
+    apply animation
+  }
+
+  */
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+  80% {
+    opacity: 0.8;
+    transform: translateX(2rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+  80% {
+    opacity: 0.8;
+    transform: translateX(-2rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-10rem);
+  }
+  80% {
+    opacity: 0.8;
+    transform: translateY(2rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}

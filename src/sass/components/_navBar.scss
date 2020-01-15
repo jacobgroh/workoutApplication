@@ -1,0 +1,162 @@
+.nav {
+  z-index: 125;
+  position: fixed;
+  &__checkbox {
+    display: none;
+  }
+
+  &__button {
+    z-index: 150;
+    top: 5rem;
+    right: 5rem;
+    background-color: $color-white;
+    color: $color-white;
+    height: 7rem;
+    width: 7rem;
+    position: fixed;
+    border-radius: 50%;
+    box-shadow: 0 1rem 3rem rgba($color-black, 0.1);
+    cursor: pointer;
+  }
+
+  &__icon {
+    position: relative;
+    margin-top: 3.5rem;
+    margin-left: 2rem;
+    transition: all 0.2s;
+
+    &,
+    &::before,
+    &:after {
+      width: 3rem;
+      height: 2px;
+      background-color: $color-grey-dark-3;
+      display: inline-block;
+    }
+
+    &::before,
+    &:after {
+      content: "";
+      position: absolute;
+      left: 0;
+    }
+
+    &::after {
+      top: -0.8rem;
+      transition: all 0.2s;
+    }
+    &::before {
+      top: 0.8rem;
+      transition: all 0.2s;
+    }
+  }
+
+  &__checkbox:checked + &__button &__icon {
+    background-color: transparent;
+  }
+
+  &__checkbox:checked + &__button &__icon:before {
+    transform: rotate(135deg);
+    top: 0;
+    left: 0.1rem;
+  }
+
+  &__checkbox:checked + &__button &__icon:after {
+    top: 0;
+    left: 0.1rem;
+    transform: rotate(-135deg);
+  }
+
+  &__background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-left: -10rem;
+    margin-top: -10rem;
+    background-image: radial-gradient($color-primary, $color-primary-dark-1);
+    z-index: 100;
+    height: 120vh;
+    transition: all 0.8s;
+    opacity: 0;
+    width: 0;
+    //display: none;
+  }
+
+  &__menu {
+    height: 100vh;
+    width: 0;
+    //hides the links
+    //width: 0;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 110;
+    //Hides the links but not the links
+    opacity: 0;
+    transition: all 0.8s;
+  }
+
+  &__list {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    list-style: none;
+    text-align: center;
+  }
+
+  &__item {
+    margin: 1rem;
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      //Allows padding and animations
+      display: inline-block;
+      font-size: 3rem;
+      font-weight: 300;
+      padding: 1rem 2rem;
+      color: $color-white;
+      text-transform: uppercase;
+      text-decoration: none;
+
+      //This is how to get the linear gradient to be animated
+      background-image: linear-gradient(
+        120deg,
+        transparent 0%,
+        transparent 50%,
+        $color-white 50%
+      );
+      background-size: 250%;
+      transition: all 0.4s;
+    }
+
+    // shifting whole background (set background size to 200 with linear gradient above for this animation)
+    &:hover,
+    &:active {
+      background-position: 100%;
+      color: $color-primary;
+      transform: translateX(1rem);
+    }
+  }
+
+  //Functionality
+  &__checkbox:checked ~ &__background {
+    transform: scale(80);
+    opacity: 1;
+    width: 120vw;
+  }
+
+  &__checkbox:checked ~ &__menu {
+    opacity: 1;
+    width: 100vw;
+  }
+
+  &__checkbox:checked ~ &__nav {
+    opacity: 1;
+    width: 100%;
+  }
+}

@@ -1,0 +1,22 @@
+.login {
+  &__container {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+  }
+  &__form {
+    background-color: $color-grey-light-1;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 5rem 1fr;
+
+    padding: 10rem 15rem;
+
+    &__username,
+    &__password {
+      margin: 1rem 0;
+    }
+  }
+}

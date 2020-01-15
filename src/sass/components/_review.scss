@@ -1,0 +1,34 @@
+.review {
+  font-size: 2rem;
+  background-color: $color-grey-light-1;
+  margin: 0 auto;
+  width: 70vw;
+  margin-bottom: 4rem;
+  padding-left: 2rem;
+  transform: skewX(-15deg);
+
+  &__shape {
+    height: 4.5rem;
+    width: 4.5rem;
+    float: left;
+    //Has to have width, height and float
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    shape-outside: circle(50% at 50% 50%);
+    border-radius: none;
+  }
+  &__img {
+    transform: skewX(15deg);
+    border-radius: 50%;
+    height: 4.5rem;
+    width: 4.5rem;
+    //float: left;
+    margin-right: 1rem;
+  }
+
+  &__ranking {
+  }
+  &__comment {
+    transform: skewX(15deg);
+    display: block;
+  }
+}

@@ -1,0 +1,27 @@
+/* img {
+  width: 200px !important;
+} */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+/* 16px is default size and every size is relative to that */
+html {
+  font-size: 62.5%;
+}
+
+#root {
+  padding: 2em;
+}
+
+body#body,
+#root {
+  /* font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif; */
+  font-weight: 500;
+  line-height: 1.7;
+  color: #777;
+  box-sizing: border-box;
+}

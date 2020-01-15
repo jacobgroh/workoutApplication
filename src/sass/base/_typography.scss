@@ -1,0 +1,20 @@
+.heading-2 {
+  font-size: $large-font-size;
+  font-weight: 500;
+}
+
+.colored {
+  background-image: linear-gradient(
+    to right,
+    rgba($color-primary, 0.8),
+    rgba($color-secondary, 0.8)
+  );
+  display: inline-block;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.colored-text {
+  color: $color-primary;
+  z-index: 1;
+}

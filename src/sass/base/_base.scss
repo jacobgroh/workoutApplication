@@ -1,0 +1,39 @@
+// File used for Basic definitiion
+/* Basic reset - Normalize to make a cross browser reset (browsers are getting better so not really necessary) */
+
+/* Apply to all (some browsers have some defaults, want to make it same) */
+
+/* Box-sizing: border-box  paddings are not added to height and width of box*/
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+$bp-extra-large: 93.75em; //1500 /16 = 75em
+$bp-largest: 75em; //1200 /16 = 75em
+$bp-large: 62.5em; //1000 /16
+$bp-medium: 56.25em; //900 /16
+$bp-med-small: 43.75rem; // 700/16
+$bp-small: 37.5em; //600 /16
+
+/* 
+Bad to set font size of webpage, cause then users cant use built in browser to increase font size
+default of browser is 16 px -> 10/16 = 62.5%
+*/
+
+html {
+  //This defines what 1rem is
+  font-size: 62.5%;
+  @media only screen and (max-width: $bp-largest) {
+    font-size: 50%;
+  }
+  @media only screen and (max-width: $bp-medium) {
+    font-size: 40%;
+  }
+}
+
+body {
+  box-sizing: border-box;
+}

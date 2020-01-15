@@ -1,0 +1,34 @@
+.link {
+  font-weight: 800;
+  padding-left: 1rem;
+  text-decoration: none;
+
+  &:link,
+  &:visited {
+    display: inline-block;
+    text-transform: uppercase;
+    text-decoration: none;
+    /* transition: all .2s; */
+    position: relative;
+    font-size: 1.6rem;
+  }
+
+  // /* Refactor Why box shadows do not appear */
+  &--green {
+    color: #fff;
+    background-color: rgb(33, 189, 168);
+  }
+  &--white {
+    color: #fff;
+  }
+
+  &--primary {
+    color: $color-primary-dark;
+  }
+
+  &:hover,
+  &:active {
+    box-shadow: 0 0.5rem 1rem, rgba(0, 0, 0, 0.3);
+    transform: translateY(-5px);
+  }
+}

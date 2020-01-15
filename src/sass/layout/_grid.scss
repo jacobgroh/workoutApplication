@@ -1,0 +1,38 @@
+.row {
+  // Max - width is if space, that width, if not adjust
+  max-width: $grid-width;
+  // Trick to center block elements in other block elements
+  // Top and right are 0, left and right (calc the same)
+  margin: 0 auto;
+
+  // Would select last child, but this selects all but last child
+  &:not(:last-child) {
+    margin-bottom: $gutter-vertical;
+  }
+
+  @include clearfix;
+
+  //select all classes where attributes start with
+  [class^="col-"] {
+    float: left;
+
+    &:not(:last-child) {
+      margin-right: $gutter-horizontal;
+    }
+  }
+
+  //Calc - allows mixes of units
+  .col-1-of-2 {
+    width: calc((100% - #{$gutter-horizontal}) / 2);
+  }
+
+  .col-1-of-3 {
+    width: calc((100% - 2 * #{$gutter-horizontal}) / 3);
+  }
+
+  .col-2-of-3 {
+    width: calc(
+      2 * ((100% - 2 * #{$gutter-horizontal}) / 3) + #{$gutter-horizontal}
+    );
+  }
+}

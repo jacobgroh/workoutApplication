@@ -1,0 +1,26 @@
+.table {
+  border: 2px solid $color-black;
+  width: 100%;
+  & tbody tr {
+    border: 1px solid $color-black;
+    text-align: center;
+    padding: 8px;
+    background-color: $color-grey-light-2;
+  }
+
+  & tbody tr:nth-child(even) {
+    background-color: $color-white;
+  }
+
+  &__column {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  &__item--button {
+    width: 100%;
+    background-color: 2px solid $color-primary;
+    color: $color-primary-dark-1;
+    cursor: pointer;
+  }
+}
