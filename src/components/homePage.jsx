@@ -7,6 +7,7 @@ import profile1 from "../images/profile_pic-1.png";
 import profile2 from "../images/profile-pic_2.jpg";
 import gymVid1 from "../images/gym-vid.jpg";
 import gymVid2 from "../images/gym-vid.mp4";
+import demoVid1 from "../images/Basic-demo.mp4";
 import cardio from "../images/cardio.jpg";
 import flexible from "../images/strech.jpg";
 import weight from "../images/weight.jpg";
@@ -79,8 +80,7 @@ const HomePage = () => {
         <div className="video__container">
           <div className="bg-video">
             <video className="bg-video__content" controls>
-              <source src={gymVid2} type="video/mp4"></source>
-              <source src={gymVid1} type="video/jpg"></source>
+              <source src={demoVid1} type="video/mp4"></source>
               Your browser is not supported
             </video>
           </div>

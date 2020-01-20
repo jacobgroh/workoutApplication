@@ -71,6 +71,7 @@ const ViewWorkout = props => {
 
   const handleFormSubmit = e => {
     e.preventDefault();
+    console.log("handle Form Submit");
 
     const handleAjax = async (e, exercises, reps) => {
       // Send Ajax request to Create a new Workout (name and date)
@@ -86,7 +87,7 @@ const ViewWorkout = props => {
         showReps: showRep,
         showWeight: showWeight
       };
-      
+
       const workoutResult = await api.post("/workout", body);
       if (workoutResult.status !== 201) {
         console.log("Error creating workout");
@@ -95,7 +96,6 @@ const ViewWorkout = props => {
 
       // Keep Track of Workout id
       const workoutId = workoutResult.data._id;
-
       // Loop through the exercises
       exercises.map(async (exercise, index) => {
         //For each exercise, send an Ajax request to create a new exercise record.
@@ -105,7 +105,6 @@ const ViewWorkout = props => {
           workout_id: workoutId
         };
         const exerciseRecordResult = await api.post("/exerciseRecord", body);
-        console.log(exerciseRecordResult);
 
         if (exerciseRecordResult.status !== 201) {
           return;
@@ -124,6 +123,11 @@ const ViewWorkout = props => {
           const repResult = await api.post("/repRecord", body);
           if (repResult.status !== 201) return;
         });
+        // console.log(index + " length: ", exercises.length);
+        // if (index + 1 == exercises.length) {
+        //   console.log("returning true");
+        //   return true;
+        // }
       });
     };
 

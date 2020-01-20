@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./css/index.css";
 import App from "./App";
-// import "bootstrap/dist/css/bootstrap.css";
 import { BrowserRouter } from "react-router-dom";
 import reducers from "./reducers";
 import { Provider } from "react-redux";
