@@ -7,6 +7,7 @@ import useFormHandler from "./hooks/useFormHandler";
 import Header from "./header";
 import SideBar from "./sideBar";
 import Input from "./common/input";
+import history from "../history";
 
 const ViewWorkout = props => {
   const [showRep, setShowReps] = useState(false);
@@ -133,6 +134,8 @@ const ViewWorkout = props => {
 
     //Run above code:
     handleAjax(e, exercises, reps);
+
+    history.push("/myWorkouts");
   };
 
   const handleExerciseChange = ({ target: { name, value, id: index } }) => {

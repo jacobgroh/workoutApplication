@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import api from "../api/apis";
 import Input from "./common/input";
 import Joi from "joi-browser";
-
+import { useRef } from "react";
 import useFormHandler from "./hooks/useFormHandler";
 import { validateForm } from "./common/formUtils";
-
 const fields = [
   {
     name: "title",
@@ -40,6 +39,7 @@ const fields = [
 ];
 
 const CreateWorkoutForm = () => {
+  const closeTag = useRef(null);
   const { values, handleChange } = useFormHandler({
     title: "",
     description: "",
@@ -62,10 +62,10 @@ const CreateWorkoutForm = () => {
     console.log(errors);
     if (!errors) {
       await api.post("/exercise", values);
-      window.location.href = "http://localhost:3001/workouts";
+      closeTag.current.click();
+    } else {
+      setErrors(errors);
     }
-
-    setErrors(errors);
   };
 
   const schema = {
@@ -92,7 +92,7 @@ const CreateWorkoutForm = () => {
   return (
     <section className="popup" id="popup">
       <div className="popup__content">
-        <a href="/workouts" className="popup__close">
+        <a href="#" ref={closeTag} className="popup__close">
           &times;
         </a>
 
