@@ -1,11 +1,10 @@
-/*
-Input: 
-object with image array, description, muscle group array 
-
-*/
 import ImageScroller from "react-image-scroller";
 import React, { Component } from "react";
 
+/*
+Input: 
+object with image array, description, muscle group array 
+*/
 class exerciseCard extends Component {
   constructor(props) {
     super(props);
@@ -20,7 +19,6 @@ class exerciseCard extends Component {
 
   render() {
     return (
-      //<div className="border borderLight rounded-lg shadow-sm p-3 mb-5 bg-white rounded exerciseContainer">
       <div className="ui card">
         <div className="content">
           <div>Name: {this.state.name}</div>

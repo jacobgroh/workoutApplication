@@ -23,10 +23,6 @@ class form extends Component {
     if (errors) return;
     this.doSubmit;
   };
-
-  // Validate function
-
-  // On Submit function that calls validate function
 }
 
 export default form;

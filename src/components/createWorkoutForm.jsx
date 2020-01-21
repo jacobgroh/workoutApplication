@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import { useRef } from "react";
+import Joi from "joi-browser";
+
 import api from "../api/apis";
 import Input from "./common/input";
-import Joi from "joi-browser";
-import { useRef } from "react";
 import useFormHandler from "./hooks/useFormHandler";
 import { validateForm } from "./common/formUtils";
 const fields = [
@@ -59,7 +60,6 @@ const CreateWorkoutForm = () => {
     e.preventDefault();
     const errors = validateForm(values, schema);
 
-    console.log(errors);
     if (!errors) {
       await api.post("/exercise", values);
       closeTag.current.click();

@@ -1,8 +1,8 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import api from "../api/apis";
-
 import _ from "lodash";
+
+import api from "../api/apis";
 
 const ViewWorkoutHistory = () => {
   const [fullWorkout, setFullWorkout] = useState({});

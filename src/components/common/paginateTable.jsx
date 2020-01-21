@@ -37,15 +37,6 @@ const PaginateTable = ({
       </td>
     );
   };
-  // let addButton;
-  // if (onClick)
-  //   addButton = (
-  //     <td>
-  //       <div onClick={e => onClick(e)} className="table__item--button">
-  //         <FontAwesomeIcon icon={faPlusSquare} />
-  //       </div>
-  //     </td>
-  //   );
 
   return (
     <React.Fragment>

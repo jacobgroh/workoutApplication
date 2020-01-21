@@ -1,9 +1,8 @@
 import React from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-
-import { connect } from "react-redux";
 
 const Header = ({ count }) => {
   var logo = require("../images/logo.png");

@@ -1,19 +1,17 @@
 import React from "react";
-import "../css/App.css";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { useState, useEffect } from "react";
+import { connect } from "react-redux";
+import _ from "lodash";
+
+import PaginateTable from "./common/paginateTable";
+import PaginationBar from "./common/paginationBar";
 import SideBar from "./sideBar";
 import Header from "./header";
 import api from "../api/apis";
-import { useState, useEffect } from "react";
-import PaginateTable from "./common/paginateTable";
-import PaginationBar from "./common/paginationBar";
-
+import "../css/App.css";
 import { addToCart } from "../actions";
-import { connect } from "react-redux";
-
-import _ from "lodash";
 
 const Workouts = props => {
   //Workout states: exercise -> uses effect to populate valu

@@ -20,7 +20,6 @@ const Input = ({
           type={inputType || "text"}
           id={inputId}
           className={inputClass}
-          // {...rest}
           value={value}
           onChange={onChange}
         />
