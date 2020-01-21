@@ -2,11 +2,13 @@ import React from "react";
 import { connect } from "react-redux";
 import { useState, useEffect } from "react";
 import _ from "lodash";
+import Joi from "joi-browser";
 
 import api from "../api/apis";
 import useFormHandler from "./hooks/useFormHandler";
 import Input from "./common/input";
 import history from "../history";
+import { validateForm } from "./common/formUtils";
 
 const ViewWorkout = props => {
   const [showRep, setShowReps] = useState(false);
@@ -15,6 +17,12 @@ const ViewWorkout = props => {
   const [exercises, setExercises] = useState([]);
   const [reps, setReps] = useState([]);
   const [errors, setErrors] = useState({});
+
+  const schema = {
+    workoutName: Joi.string()
+      .required()
+      .label("Workout Name")
+  };
 
   useEffect(() => {
     let buildExercises = [];
@@ -27,7 +35,7 @@ const ViewWorkout = props => {
       */
       buildExercises = [
         ...buildExercises,
-        (buildExercises[idx] = { title, sets: 3 })
+        (buildExercises[idx] = { title, sets: 3, error: {} })
       ];
     });
     //Set exercises
@@ -72,6 +80,14 @@ const ViewWorkout = props => {
   const handleFormSubmit = e => {
     e.preventDefault();
 
+    //Validate the Title:
+    const errors = validateForm(values, schema);
+    if (errors) {
+      setErrors(errors);
+      return;
+    }
+
+    //Function To call if valid data
     const handleAjax = async (e, exercises, reps) => {
       // Send Ajax request to Create a new Workout (name and date)
       const workoutName = values.workoutName;
@@ -128,11 +144,14 @@ const ViewWorkout = props => {
     //Run above code:
     handleAjax(e, exercises, reps);
 
-    history.push("/myWorkouts");
+    setTimeout(function() {
+      history.push("/myWorkouts");
+    }, 500);
   };
 
   const handleExerciseChange = ({ target: { name, value, id: index } }) => {
     const updatedExercises = [...exercises];
+    console.log(updatedExercises, "index: " + index);
     updatedExercises[index][name] = value;
     setExercises(updatedExercises);
   };
@@ -239,17 +258,22 @@ const ViewWorkout = props => {
     return (
       <React.Fragment>
         <div className="cart__item--container">
-          <Input
-            inputId={setNum}
-            inputClass="cart__item--set"
-            inputType="text"
-            labelContent="Sets: "
+          <label htmlFor={setNum}>Sets: </label>
+          <select
+            id={setNum}
             name="sets"
             value={exercises[idx].sets}
             onChange={e => {
               handleExerciseChange(e);
             }}
-          />
+          >
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+          </select>
         </div>
         {displayReps(idx)}
       </React.Fragment>
@@ -273,6 +297,7 @@ const ViewWorkout = props => {
           inputType="text"
           labelContent="Workout Title: "
           onChange={e => {
+            // If errors, remove on change
             errors[e.target.name] = "";
             handleChange(e);
           }}
@@ -319,7 +344,7 @@ const ViewWorkout = props => {
         <h2 className="heading-2 cart__header">My Workout: </h2>
         <form
           onSubmit={e => {
-            handleFormSubmit(e);
+            handleFormSubmit(e, values);
           }}
           className="cart__item--form"
         >
