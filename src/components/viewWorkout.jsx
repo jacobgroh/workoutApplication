@@ -5,8 +5,6 @@ import _ from "lodash";
 
 import api from "../api/apis";
 import useFormHandler from "./hooks/useFormHandler";
-import Header from "./header";
-import SideBar from "./sideBar";
 import Input from "./common/input";
 import history from "../history";
 
@@ -73,7 +71,6 @@ const ViewWorkout = props => {
 
   const handleFormSubmit = e => {
     e.preventDefault();
-    console.log("handle Form Submit");
 
     const handleAjax = async (e, exercises, reps) => {
       // Send Ajax request to Create a new Workout (name and date)
@@ -125,11 +122,6 @@ const ViewWorkout = props => {
           const repResult = await api.post("/repRecord", body);
           if (repResult.status !== 201) return;
         });
-        // console.log(index + " length: ", exercises.length);
-        // if (index + 1 == exercises.length) {
-        //   console.log("returning true");
-        //   return true;
-        // }
       });
     };
 
@@ -292,9 +284,7 @@ const ViewWorkout = props => {
   };
 
   return (
-    <div className="workoutsPage">
-      <Header />
-      <SideBar />
+    <React.Fragment>
       <section className="cart__options">
         <ul className="cart__options__list">
           <li className="cart__options__item">
@@ -351,7 +341,7 @@ const ViewWorkout = props => {
           </ul>
         </form>
       </section>
-    </div>
+    </React.Fragment>
   );
 };
 

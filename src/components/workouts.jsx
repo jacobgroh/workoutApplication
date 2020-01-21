@@ -7,8 +7,6 @@ import _ from "lodash";
 
 import PaginateTable from "./common/paginateTable";
 import PaginationBar from "./common/paginationBar";
-import SideBar from "./sideBar";
-import Header from "./header";
 import api from "../api/apis";
 import "../css/App.css";
 import { addToCart } from "../actions";
@@ -69,9 +67,7 @@ const Workouts = props => {
   const itemsPerPage = 5;
   const pages = Math.ceil(showExercises.length / itemsPerPage);
   return (
-    <div className="workoutsPage">
-      <Header />
-      <SideBar />
+    <React.Fragment>
       <section className="searchBar">
         <div className="search">
           <input
@@ -121,7 +117,7 @@ const Workouts = props => {
           itemsPerPage={itemsPerPage}
         />
       </section>
-    </div>
+    </React.Fragment>
   );
 };
 

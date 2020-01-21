@@ -8,24 +8,23 @@ import SignUp from "./components/signUp";
 import { Switch, Route } from "react-router-dom";
 import ViewWorkout from "./components/viewWorkout";
 import workoutHistory from "./components/workoutHistory";
-import AppPaths from "./AppPaths";
+import Header from "./components/header";
+import SideBar from "./components/sideBar";
 
-function App() {
+function AppPaths() {
   return (
-    <div>
+    <div className="workoutsPage">
+      <Header />
+      <SideBar />
       <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/*" component={AppPaths} />
-
-        {/* <Route path="/workouts" component={Workouts} />
+        <Route path="/workouts" component={Workouts} />
         <Route path="/login" component={Login} />
         <Route path="/signUp" component={SignUp} />
         <Route path="/myWorkout" component={ViewWorkout} />
         <Route path="/myWorkouts" component={workoutHistory} />
-        <Route path="/" component={HomePage} /> */}
       </Switch>
     </div>
   );
 }
 
-export default App;
+export default AppPaths;

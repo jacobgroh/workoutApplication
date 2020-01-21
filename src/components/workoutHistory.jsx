@@ -2,8 +2,6 @@ import React from "react";
 import { useEffect, useState } from "react";
 import _ from "lodash";
 
-import Header from "./header";
-import SideBar from "./sideBar";
 import api from "../api/apis";
 import ViewWorkoutHistory from "./viewWorkoutHistory";
 
@@ -67,13 +65,7 @@ const WorkoutHistory = () => {
     );
   };
 
-  return (
-    <div className="workoutsPage">
-      <Header />
-      <SideBar />
-      {displayWorkouts()}
-    </div>
-  );
+  return <React.Fragment>{displayWorkouts()}</React.Fragment>;
 };
 
 export default WorkoutHistory;
