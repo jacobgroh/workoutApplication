@@ -42,6 +42,9 @@ const Workouts = props => {
   };
 
   const handleSearch = e => {
+    //reset page to page 1:
+    setCurrentPage(1);
+    //Set the filtered exercises
     setFilterExercises({
       ...filterExercises,
       search: e.target.value
